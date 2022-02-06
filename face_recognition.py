@@ -5,6 +5,7 @@ import cv2
 import mysql.connector
 from time import strftime
 from datetime import datetime
+from PIL import Image,ImageTk
 
 
 class Face_Recognition:
@@ -16,8 +17,15 @@ class Face_Recognition:
         title_lbl=Label(self.root,text="FACE RECOGNITION",font=("times new roman",32,"bold"),bg="lightblue",fg="blue")
         title_lbl.place(x=0,y=0,width=1530,height=80)
 
+        img_top=Image.open(r"Images\man-g300e4640d_1920.jpg")
+        img_top=img_top.resize((1920,1080),Image.ANTIALIAS)
+        self.photoimg=ImageTk.PhotoImage(img_top)
+
+        f_lbl=Label(self.root,image=self.photoimg)
+        f_lbl.place(x=0,y=80,width=1920,height=750)
+
         # button
-        b1_1=Button(self.root,text="Face Recognition",command=self.face_recog,cursor="hand2",font=("times new roman",15,"bold"),bg="navyblue",fg="white")
+        b1_1=Button(f_lbl,text="Face Recognition",command=self.face_recog,cursor="hand2",font=("times new roman",15,"bold"),bg="navyblue",fg="white")
         b1_1.place(x=650,y=600,width=200,height=50)
 
         # ===================================== Attendence ==============================================

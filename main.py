@@ -1,10 +1,6 @@
 from time import strftime, time
 from tkinter import*
-from tkinter import ttk
-import tkinter
-from turtle import width 
 from PIL import Image,ImageTk
-from markupsafe import string
 from matplotlib.pyplot import text, title
 from student import Student
 import os
@@ -15,7 +11,7 @@ from attendence import Attendence
 from developer import Developer
 from help import Help
 from time import strftime
-from datetime import datetime
+from developer import Developer
 
 
 class Face_Recognition_Attendence_System:
@@ -26,7 +22,7 @@ class Face_Recognition_Attendence_System:
 
 
         # 1st image
-        img=Image.open(r"Images\anas-alshanti-feXpdV001o4-unsplash.jpg")
+        img=Image.open(r"Images\gettyimages-1199766600-612x612.jpg")
         img=img.resize((550,120),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -34,7 +30,7 @@ class Face_Recognition_Attendence_System:
         f_lbl.place(x=0,y=0,width=550,height=120)
 
          # 2nd image
-        img1=Image.open(r"Images\anas-alshanti-feXpdV001o4-unsplash.jpg")
+        img1=Image.open(r"Images\gettyimages-1300313012-612x612.jpg")
         img1=img1.resize((550,120),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -42,8 +38,8 @@ class Face_Recognition_Attendence_System:
         f_lbl.place(x=500,y=0,width=550,height=120)
 
         # 3rd image
-        img2=Image.open(r"Images\anas-alshanti-feXpdV001o4-unsplash.jpg")
-        img2=img2.resize((550,120),Image.ANTIALIAS)
+        img2=Image.open(r"Images\gettyimages-1088377404-612x612.jpg")
+        img2=img2.resize((550,200),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
         f_lbl=Label(self.root,image=self.photoimg2)
@@ -58,8 +54,8 @@ class Face_Recognition_Attendence_System:
         bg_img.place(x=0,y=120,width=1920,height=950)
 
         # project title
-        title_lbl=Label(bg_img,text="FACE  RECOGNITION  ATTENDENCE  SYSTEM",font=("times new roman",32,"bold"),bg="white",fg="darkblue")
-        title_lbl.place(x=0,y=0,width=1530,height=50)
+        title_lbl=Label(bg_img,text="FACE  RECOGNITION  ATTENDENCE  SYSTEM",font=("times new roman",32,"bold"),bg="lightblue",fg="blue")
+        title_lbl.place(x=0,y=0,width=1530,height=60)
 
         # =================== Time ====================
 
@@ -81,29 +77,29 @@ class Face_Recognition_Attendence_System:
         b1=Button(bg_img,image=self.photoimg4,command=self.student_details, cursor="hand2")
         b1.place(x=200,y=100,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Student Details",command=self.student_details,cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Student Details",command=self.student_details,cursor="hand2",font=("times new roman",15,"bold"),bg="blue",fg="white")
         b1_1.place(x=200,y=300,width=220,height=40)
 
         # detect face button
-        img5=Image.open(r"Images\woman-face-recognition-biometric-verification-concept.jpg")
+        img5=Image.open(r"Images\istockphoto-1255199117-612x612.jpg")
         img5=img5.resize((300,220),Image.ANTIALIAS)
         self.photoimg5=ImageTk.PhotoImage(img5)
 
         b1=Button(bg_img,image=self.photoimg5,cursor="hand2",command=self.face_data)
         b1.place(x=500,y=100,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Face Detector",cursor="hand2",command=self.face_data,font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Face Detector",cursor="hand2",command=self.face_data,font=("times new roman",15,"bold"),bg="blue",fg="white")
         b1_1.place(x=500,y=300,width=220,height=40)
 
         # attendence button
-        img6=Image.open(r"Images\pexels-photo-3401403.jpeg")
+        img6=Image.open(r"Images\download.png")
         img6=img6.resize((300,220),Image.ANTIALIAS)
         self.photoimg6=ImageTk.PhotoImage(img6)
 
         b1=Button(bg_img,image=self.photoimg6,command=self.attendence_data,cursor="hand2")
         b1.place(x=800,y=100,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Attendence",command=self.attendence_data,cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Attendence",command=self.attendence_data,cursor="hand2",font=("times new roman",15,"bold"),bg="blue",fg="white")
         b1_1.place(x=800,y=300,width=220,height=40)
 
         # help button
@@ -114,30 +110,30 @@ class Face_Recognition_Attendence_System:
         b1=Button(bg_img,image=self.photoimg7,command=self.help_desk,cursor="hand2")
         b1.place(x=1100,y=100,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Help Desk",command=self.help_desk,cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Help Desk",command=self.help_desk,cursor="hand2",font=("times new roman",15,"bold"),bg="blue",fg="white")
         b1_1.place(x=1100,y=300,width=220,height=40)
 
         # train data button
-        img8=Image.open(r"Images\woman-using-face-recognition-system-.jpg")
+        img8=Image.open(r"Images\download.jfif")
         img8=img8.resize((300,220),Image.ANTIALIAS)
         self.photoimg8=ImageTk.PhotoImage(img8)
 
         b1=Button(bg_img,image=self.photoimg8,cursor="hand2",command=self.train_data)
         b1.place(x=200,y=380,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Train Data",cursor="hand2",command=self.train_data,font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Train Data",cursor="hand2",command=self.train_data,font=("times new roman",15,"bold"),bg="blue",fg="white")
         b1_1.place(x=200,y=580,width=220,height=40)
 
     
         # photos button
-        img9=Image.open(r"Images\collage-many-business-people.jpg")
-        img9=img9.resize((300,220),Image.ANTIALIAS)
+        img9=Image.open(r"Images\images (1).jfif")
+        img9=img9.resize((250,230),Image.ANTIALIAS)
         self.photoimg9=ImageTk.PhotoImage(img9)
 
         b1=Button(bg_img,image=self.photoimg9,cursor="hand2",command=self.open_img)
         b1.place(x=500,y=380,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Photos",cursor="hand2",command=self.open_img,font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Photos",cursor="hand2",command=self.open_img,font=("times new roman",15,"bold"),bg="blue",fg="white")
         b1_1.place(x=500,y=580,width=220,height=40)
 
          # developer button
@@ -145,10 +141,10 @@ class Face_Recognition_Attendence_System:
         img10=img10.resize((250,250),Image.ANTIALIAS)
         self.photoimg10=ImageTk.PhotoImage(img10)
 
-        b1=Button(bg_img,image=self.photoimg10,command=self.developer_data,cursor="hand2")
+        b1=Button(bg_img,image=self.photoimg10,command=self.dev_data,cursor="hand2")
         b1.place(x=800,y=380,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Developer",command=self.developer_data,cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Developer",command=self.dev_data,cursor="hand2",font=("times new roman",15,"bold"),bg="blue",fg="white")
         b1_1.place(x=800,y=580,width=220,height=40)
 
         # exit button
@@ -159,7 +155,7 @@ class Face_Recognition_Attendence_System:
         b1=Button(bg_img,image=self.photoimg11,command=self.iExit,cursor="hand2")
         b1.place(x=1100,y=380,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Exit",command=self.iExit,cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Exit",command=self.iExit,cursor="hand2",font=("times new roman",15,"bold"),bg="blue",fg="white")
         b1_1.place(x=1100,y=580,width=220,height=40)
 
 
@@ -195,6 +191,10 @@ class Face_Recognition_Attendence_System:
     def help_desk(self):
         self.new_window=Toplevel(self.root)
         self.app=Help(self.new_window)
+
+    def dev_data(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Developer(self.new_window)
 
 
     def iExit(self):

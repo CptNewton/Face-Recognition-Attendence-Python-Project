@@ -20,7 +20,7 @@ class Help:
         dev_lbl=Label(f_lbl,text=("Email: nayanjadhikary4@gmail.com\n\nTelegram: @Capt_Newton"),font=25,fg="darkblue")
         dev_lbl.place(x=728,y=360,width=550,height=80)
 
-
+        
 
 
 

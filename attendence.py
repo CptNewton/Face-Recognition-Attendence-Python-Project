@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk 
 from tkinter import messagebox
+import mysql.connector
 import os
 import csv
 from tkinter import filedialog
@@ -181,7 +182,7 @@ class Attendence:
                 exp_write=csv.writer(myfile,delimiter=",")
                 for i in mydata:
                     exp_write.writerow(i)
-                messagebox.showinfo("Data Export","Your data exported Successfully")
+                messagebox.showinfo("Data Export","Your data has been exported to "+os.path.basename(fln)+" Succesfully.")
         except Exception as es:
                 messagebox.showerror("Error",f"Due to :{str(es)}",parent=self.root)
 
@@ -210,7 +211,10 @@ class Attendence:
 
         
 
+# update function
 
+   
+        
 
 
 

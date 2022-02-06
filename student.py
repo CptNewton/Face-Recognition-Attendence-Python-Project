@@ -1,3 +1,4 @@
+from optparse import Values
 from tkinter import*
 from tkinter import ttk 
 from tkinter import messagebox
@@ -182,26 +183,31 @@ class Student:
 
 
         # =======================================================search system====================================================
-       
+        
         search_frame=LabelFrame(right_frame,bd=2,bg="white",relief=RIDGE,text="Search System",font=("times new roman",14,"bold"),fg="blue")
         search_frame.place(x=7,y=130,width=702,height=70)
 
         search=Label(search_frame,text="Search By:",font=("times new roman",14,"bold"),bg="white",fg="red")
         search.grid(row=0,column=0,padx=5,pady=5,sticky=W)
 
-        search_combo=ttk.Combobox(search_frame,font=("times new roman",14,"bold"),state="readonly",width=12)
+        # search
+
+        self.var_combo_seach=StringVar()
+
+        search_combo=ttk.Combobox(search_frame,textvariable=self.var_combo_seach,font=("times new roman",14,"bold"),state="readonly",width=12)
         search_combo["values"]=("Select","Roll_No","Phone_No","email_ID")
         search_combo.current(0)
         search_combo.grid(row=0,column=1,padx=1,pady=10,sticky=W)
 
-        search_entry=ttk.Entry(search_frame,width=18,font=("times new roman",14,"bold"))
+        self.var_search=StringVar()
+        search_entry=ttk.Entry(search_frame,textvariable=self.var_search,width=18,font=("times new roman",14,"bold"))
         search_entry.grid(row=0,column=2,padx=4,pady=5,sticky=W)
 
 
-        search_btn=Button(search_frame,text="Search",width=12,font=("times new roman",12,"bold"),bg="yellow",fg="black")
+        search_btn=Button(search_frame,text="Search",command=self.search_data,width=12,font=("times new roman",12,"bold"),bg="yellow",fg="black")
         search_btn.grid(row=0,column=3,padx=4)
 
-        showAll_btn=Button(search_frame,text="Show All",width=12,font=("times new roman",12,"bold"),bg="darkblue",fg="white")
+        showAll_btn=Button(search_frame,text="Show All",command=self.fetch_data,width=12,font=("times new roman",12,"bold"),bg="darkblue",fg="white")
         showAll_btn.grid(row=0,column=4,padx=3)
 
         # ====================================================table frame=======================================================
@@ -299,7 +305,7 @@ class Student:
             for i in data:
                 self.student_table.insert("",END,values=i)
             conn.commit()
-        conn.close()        
+            conn.close()        
 
     # ==================================== get cursor ===========================================
 
@@ -404,8 +410,25 @@ class Student:
         self.var_radio1.set("")
 
 
+    # Search data Function
 
-
+    def search_data(self):
+        if self.var_combo_seach.get()=="" or self.var_search.get()=="":
+            messagebox.showerror("Error","Please select option")
+        else:
+            try:
+                conn=mysql.connector.connect(host="localhost",username="root",password="",database="face_recognizer")
+                my_cursor=conn.cursor()
+                my_cursor.execute("select * from student where "+str(self.var_combo_seach.get())+" LIKE '%"+str(self.var_search.get())+"%'")
+                data=my_cursor.fetchall()
+                if len(data)!=0:
+                    self.student_table.delete(*self.student_table.get_children())
+                    for i in data:
+                        self.student_table.insert("",END,values=i)
+                    conn.commit()
+                conn.close()
+            except Exception as es:
+                messagebox.showerror("Error",f"Due to:{str(es)}",parent=self.root)
 
 
     # =============================== generate data set or take photo sample =======================================
