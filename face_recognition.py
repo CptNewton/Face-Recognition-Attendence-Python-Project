@@ -1,9 +1,6 @@
-from tkinter import*
-from unicodedata import name 
-from matplotlib.pyplot import clf, gray
+from tkinter import* 
 import cv2
 import mysql.connector
-from time import strftime
 from datetime import datetime
 from PIL import Image,ImageTk
 
@@ -14,8 +11,12 @@ class Face_Recognition:
         self.root.geometry("1920x1080+0+0")
         self.root.title("Face Recognition Attendence System")
         
-        title_lbl=Label(self.root,text="FACE RECOGNITION",font=("times new roman",32,"bold"),bg="lightblue",fg="blue")
+        # title
+        title_lbl=Label(self.root,text="FACE  RECOGNITION  PAGE",font=("times new roman",32,"bold"),bg="black",fg="yellow")
         title_lbl.place(x=0,y=0,width=1530,height=80)
+
+        back_btn2=Button(title_lbl,text="BACK",command=self.root.destroy,font=("arial",12,"bold"),width=17,bg="red",fg="black",activebackground="red")
+        back_btn2.pack(side=RIGHT)
 
         img_top=Image.open(r"Images\man-g300e4640d_1920.jpg")
         img_top=img_top.resize((1920,1080),Image.ANTIALIAS)
@@ -25,8 +26,8 @@ class Face_Recognition:
         f_lbl.place(x=0,y=80,width=1920,height=750)
 
         # button
-        b1_1=Button(f_lbl,text="Face Recognition",command=self.face_recog,cursor="hand2",font=("times new roman",15,"bold"),bg="navyblue",fg="white")
-        b1_1.place(x=650,y=600,width=200,height=50)
+        b1_1=Button(f_lbl,text="Face Recognition",command=self.face_recog,cursor="hand2",font=("times new roman",25,"bold"),bg="yellow",fg="red",activebackground="red")
+        b1_1.place(x=500,y=100,width=500,height=80)
 
         # ===================================== Attendence ==============================================
 
@@ -41,7 +42,7 @@ class Face_Recognition:
                 now=datetime.now()
                 d1=now.strftime("%d/%m/%Y")
                 dtString=now.strftime("%H:%M:%S")
-                f.writelines(f"\n{i},{r},{n},{d},{dtString},{d1},Preset")
+                f.writelines(f"\n{i},{r},{n},{d},{dtString},{d1},Present")
 
 
         # ===================================== face recognition ========================================

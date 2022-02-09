@@ -1,17 +1,14 @@
-from time import strftime, time
+from time import strftime
 from tkinter import*
 from PIL import Image,ImageTk
-from matplotlib.pyplot import text, title
-from student import Student
 import os
+from student import Student
 from tkinter import messagebox
 from train import Train
 from face_recognition import Face_Recognition
 from attendence import Attendence
 from developer import Developer
 from help import Help
-from time import strftime
-from developer import Developer
 
 
 class Face_Recognition_Attendence_System:

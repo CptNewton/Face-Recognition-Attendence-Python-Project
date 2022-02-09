@@ -1,2 +1,0 @@
-main.py :  change photos
-student.py: add photots

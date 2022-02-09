@@ -1,4 +1,3 @@
-from atexit import register
 from tkinter import*
 from tkinter import ttk
 from PIL import Image,ImageTk
@@ -10,6 +9,12 @@ class Register:
         self.root=root
         self.root.title("Register")
         self.root.geometry("1920x1080+0+0")
+
+
+
+        
+        title_lbl=Label(root,text="ADMIN  REGISTER  PAGE",font=("times new roman",32,"bold"),bg="white",fg="blue")
+        title_lbl.place(x=0,y=0,width=1530,height=60)
 
         # ================================ variables ===================================
         self.var_fname=StringVar()
@@ -23,27 +28,27 @@ class Register:
 
 
          # bg image
-        img=Image.open(r"Images\211012.jpg")
+        img=Image.open(r"Images\1159285.jpg")
         img=img.resize((1920,1080),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
         bg_img=Label(self.root,image=self.photoimg)
-        bg_img.place(x=0,y=0,width=1920,height=1080)
+        bg_img.place(x=0,y=60,width=1920,height=1080)
 
          # left image
-        img1=Image.open(r"Images\anas-alshanti-feXpdV001o4-unsplash.jpg")
-        img1=img1.resize((1920,1080),Image.ANTIALIAS)
+        img1=Image.open(r"Images\andras-vas-Bd7gNnWJBkU-unsplash.jpg")
+        img1=img1.resize((550,550),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
-        bg_img=Label(bg_img,image=self.photoimg1)
-        bg_img.place(x=50,y=140,width=470,height=550)
+        left_img=Label(root,image=self.photoimg1)
+        left_img.place(x=150,y=110,width=470,height=550)
 
         # ================================= main frame ===============================================
         frame=Frame(self.root,bg="white")
-        frame.place(x=520,y=140,width=800,height=550)
+        frame.place(x=620,y=110,width=670,height=550)
 
         register_lbl=Label(frame,text="REGISTER HERE",font=("times new roman",20,"bold"),fg="green",bg="white")
-        register_lbl.place(x=20,y=20)
+        register_lbl.place(x=210,y=20)
 
         # ============================================== label and entry =================================================
 
@@ -111,15 +116,15 @@ class Register:
         img=Image.open(r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\images (8).jfif")
         img=img.resize((200,60),Image.ANTIALIAS)
         self.photoimage=ImageTk.PhotoImage(img)
-        b1=Button(frame,image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="white")
+        b1=Button(frame,image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="white",activebackground="white")
         b1.place(x=50,y=420,width=200)
 
 
         img1=Image.open(r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\login (1).jfif")
         img1=img1.resize((200,48),Image.ANTIALIAS)
         self.photoimage1=ImageTk.PhotoImage(img1)
-        b1=Button(frame,image=self.photoimage1,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="white")
-        b1.place(x=350,y=422,width=200)
+        b2=Button(frame,image=self.photoimage1,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="white",activebackground="white")
+        b2.place(x=350,y=422,width=200)
 
 
         # ========================================== function declare ========================================================

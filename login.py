@@ -17,25 +17,62 @@ class login_window:
         self.root.title("Login")
         self.root.geometry("1920x1080+0+0")
 
-        #  # bg image
-        # self.bg=ImageTk.PhotoImage(file=r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\wallpaperflare.com_wallpaper.jpg")
-        # bg_img=Label(self.root,image=self.bg)
-        # bg_img.place(x=0,y=0,relwidth=1,relheight=1)
 
-        frame=Frame(self.root,bg="white")
-        frame.place(x=610,y=170,width=340,height=450)
 
-        img1=Image.open(r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\images (6).jfif")
-        img1=img1.resize((150,80),Image.ANTIALIAS)
-        self.photoimage1=ImageTk.PhotoImage(img1)
-        lbl_img1=Label(image=self.photoimage1,bg="black",borderwidth=0)
-        lbl_img1.place(x=700,y=177,width=150,height=75)
+        # 1st image
+        img=Image.open(r"Images\gettyimages-1199766600-612x612.jpg")
+        img=img.resize((550,120),Image.ANTIALIAS)
+        self.photoimg=ImageTk.PhotoImage(img)
+
+        f_lbl=Label(self.root,image=self.photoimg)
+        f_lbl.place(x=0,y=0,width=550,height=120)
+
+         # 2nd image
+        img1=Image.open(r"Images\gettyimages-1300313012-612x612.jpg")
+        img1=img1.resize((550,120),Image.ANTIALIAS)
+        self.photoimg1=ImageTk.PhotoImage(img1)
+
+        f_lbl=Label(self.root,image=self.photoimg1)
+        f_lbl.place(x=500,y=0,width=550,height=120)
+
+        # 3rd image
+        img2=Image.open(r"Images\gettyimages-1088377404-612x612.jpg")
+        img2=img2.resize((550,200),Image.ANTIALIAS)
+        self.photoimg2=ImageTk.PhotoImage(img2)
+
+        f_lbl=Label(self.root,image=self.photoimg2)
+        f_lbl.place(x=1000,y=0,width=550,height=120)
+
+         # bg image
+        img3=Image.open(r"Images\damian-zalesk.jpg")
+        img3=img3.resize((1920,950),Image.ANTIALIAS)
+        self.photoimg3=ImageTk.PhotoImage(img3)
+
+        bg_img=Label(self.root,image=self.photoimg3)
+        bg_img.place(x=0,y=120,width=1920,height=950)
+
+        # project title
+        title_lbl=Label(bg_img,text="ADMIN  LOGIN  PAGE",font=("times new roman",32,"bold"),bg="white",fg="blue")
+        title_lbl.place(x=0,y=0,width=1530,height=60)
+
+        back_btn=Button(title_lbl,text="EXIT",command=self.iExit,font=("arial",12,"bold"),width=17,bg="red",fg="black")
+        back_btn.pack(side=RIGHT)
+
+        # login frame
+        frame=Frame(bg_img,bg="white")
+        frame.place(x=590,y=62,width=340,height=450)
+
+        img7=Image.open(r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\images (6).jfif")
+        img7=img7.resize((150,80),Image.ANTIALIAS)
+        self.photoimage7=ImageTk.PhotoImage(img7)
+        lbl_img7=Label(frame,image=self.photoimage7,bg="white")
+        lbl_img7.place(x=92,y=10,width=150,height=75)
 
         get_str=Label(frame,text="Get Started",font=("times new roman",20,"bold"),fg="black",bg="white")
         get_str.place(x=100,y=80)
 
         # label 
-        username=Label(frame,text="Username",font=("times new roman",15,"bold"),fg="black",bg="white")
+        username=Label(frame,text="Username:",font=("times new roman",15,"bold"),fg="black",bg="white")
         username.place(x=70,y=155)
 
         self.txtuser=StringVar()
@@ -44,7 +81,7 @@ class login_window:
         txtuser=ttk.Entry(frame,textvariable=self.txtuser,font=("times new roman",15,"bold"))
         txtuser.place(x=40,y=180,width=270)
 
-        password=lbl=Label(frame,text="Password",font=("times new roman",15,"bold"),fg="black",bg="white")
+        password=lbl=Label(frame,text="Password:",font=("times new roman",15,"bold"),fg="black",bg="white")
         password.place(x=70,y=225)
 
         txtpass=ttk.Entry(frame,textvariable=self.txtpass,font=("times new roman",15,"bold"))
@@ -54,14 +91,14 @@ class login_window:
         img2=Image.open(r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\images (2).png")
         img2=img2.resize((25,25),Image.ANTIALIAS)
         self.photoimage2=ImageTk.PhotoImage(img2)
-        lbl_img2=Label(image=self.photoimage2,bg="black",borderwidth=0)
-        lbl_img2.place(x=650,y=323,width=25,height=25)
+        lbl_img2=Label(frame,image=self.photoimage2,bg="black",borderwidth=0)
+        lbl_img2.place(x=45,y=155,width=25,height=25)
 
         img3=Image.open(r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\images (1).jpg")
         img3=img3.resize((25,25),Image.ANTIALIAS)
         self.photoimage3=ImageTk.PhotoImage(img3)
-        lbl_img3=Label(image=self.photoimage3,bg="black",borderwidth=0)
-        lbl_img3.place(x=650,y=395,width=25,height=25)
+        lbl_img3=Label(frame,image=self.photoimage3,bg="black",borderwidth=0)
+        lbl_img3.place(x=45,y=225,width=25,height=25)
 
         # ===================================================button==============================================
 
@@ -79,8 +116,12 @@ class login_window:
 
 
     def register_window(self):
-        self.new_window=Toplevel(self.root)
-        self.app=Register(self.new_window)
+        self.new_window1=Toplevel(self.root)
+        self.app=Register(self.new_window1)
+
+
+
+# ===================================================== login class =================================================================
 
     def login(self):
         if self.txtuser.get()=="" or self.txtpass.get()=="":
@@ -138,7 +179,7 @@ class login_window:
                     self.txtuser.focus()
 
             except Exception as es:
-                        messagebox.showerror("Error",f"Due to:{str(es)}",parent=self.root2)
+                messagebox.showerror("Error",f"Due to:{str(es)}",parent=self.root2)
     
 
     # ================================================ forget password window =============================================
@@ -192,15 +233,31 @@ class login_window:
                 btn=Button(self.root2,text="Reset",command=self.reset_pass,font=("times new roman",15,"bold"),fg="black",bg="green")
                 btn.place(x=145,y=300)
 
+
+    def iExit(self):
+        self.iExit=messagebox.askyesno("Login System","Are you sure to exit this project?",parent=self.root)
+        if self.iExit>0:
+            self.root.destroy()
+        else:
+            return
     
    
-        
+#===================================================== register class ================================================================        
 
 class Register:
     def __init__(self,root):
         self.root=root
         self.root.title("Register")
         self.root.geometry("1920x1080+0+0")
+
+
+
+        
+        title_lbl=Label(root,text="ADMIN  REGISTER  PAGE",font=("times new roman",32,"bold"),bg="white",fg="blue")
+        title_lbl.place(x=0,y=0,width=1530,height=60)
+
+        back_btn2=Button(title_lbl,text="EXIT",command=self.root.destroy,font=("arial",12,"bold"),width=17,bg="white",fg="red")
+        back_btn2.pack(side=RIGHT)
 
         # ================================ variables ===================================
         self.var_fname=StringVar()
@@ -214,27 +271,27 @@ class Register:
 
 
          # bg image
-        img=Image.open(r"Images\211012.jpg")
+        img=Image.open(r"Images\1159285.jpg")
         img=img.resize((1920,1080),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
         bg_img=Label(self.root,image=self.photoimg)
-        bg_img.place(x=0,y=0,width=1920,height=1080)
+        bg_img.place(x=0,y=60,width=1920,height=1080)
 
          # left image
-        img1=Image.open(r"Images\anas-alshanti-feXpdV001o4-unsplash.jpg")
-        img1=img1.resize((1920,1080),Image.ANTIALIAS)
+        img1=Image.open(r"Images\andras-vas-Bd7gNnWJBkU-unsplash.jpg")
+        img1=img1.resize((550,550),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
-        bg_img=Label(bg_img,image=self.photoimg1)
-        bg_img.place(x=50,y=140,width=470,height=550)
+        left_img=Label(root,image=self.photoimg1)
+        left_img.place(x=150,y=110,width=470,height=550)
 
         # ================================= main frame ===============================================
         frame=Frame(self.root,bg="white")
-        frame.place(x=520,y=140,width=800,height=550)
+        frame.place(x=620,y=110,width=670,height=550)
 
         register_lbl=Label(frame,text="REGISTER HERE",font=("times new roman",20,"bold"),fg="green",bg="white")
-        register_lbl.place(x=20,y=20)
+        register_lbl.place(x=210,y=20)
 
         # ============================================== label and entry =================================================
 
@@ -302,15 +359,15 @@ class Register:
         img=Image.open(r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\images (8).jfif")
         img=img.resize((200,60),Image.ANTIALIAS)
         self.photoimage=ImageTk.PhotoImage(img)
-        b1=Button(frame,image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="white")
+        b1=Button(frame,image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="white",activebackground="white")
         b1.place(x=50,y=420,width=200)
 
 
         img1=Image.open(r"C:\Users\Mitali Barman\OneDrive\Desktop\Python Project\Images\login (1).jfif")
         img1=img1.resize((200,48),Image.ANTIALIAS)
         self.photoimage1=ImageTk.PhotoImage(img1)
-        b1=Button(frame,image=self.photoimage1,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="white")
-        b1.place(x=350,y=422,width=200)
+        b2=Button(frame,image=self.photoimage1,command=self.return_login,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="white",activebackground="white")
+        b2.place(x=350,y=422,width=200)
 
 
         # ========================================== function declare ========================================================
@@ -324,7 +381,7 @@ class Register:
         elif self.var_check.get()==0:
             messagebox.showerror("Error","Please agree our terms & conditions")
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="",database="face_recognizer")
+            conn=mysql.connector.connect(host="localhost",username="root",password="",database="face_recognizer")
             my_cursor=conn.cursor()
             query=("select * from register where Email=%s")
             value=(self.var_email.get(),)

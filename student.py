@@ -1,9 +1,10 @@
-from optparse import Values
 from tkinter import*
 from tkinter import ttk 
 from tkinter import messagebox
+from turtle import bgcolor
 import mysql.connector
 import cv2 
+from PIL import Image,ImageTk
 
 class Student:
     def __init__(self,root):
@@ -32,9 +33,19 @@ class Student:
         title_lbl=Label(root,text="STUDENT  MANAGEMENT  SYSTEM",font=("times new roman",32,"bold"),bg="lightblue",fg="blue")
         title_lbl.place(x=0,y=0,width=1530,height=80)
 
+        back_btn2=Button(title_lbl,text="BACK",command=self.root.destroy,font=("arial",12,"bold"),width=17,bg="white",fg="red",activebackground="white")
+        back_btn2.pack(side=RIGHT)
+
         # left label frame
         Left_frame=LabelFrame(root,bd=2,bg="white", relief=RIDGE,text="Student Information",font=("times new roman",14,"bold"),fg="red")
         Left_frame.place(x=60,y=100,width=690,height=650)
+
+        left_img=Image.open(r"images\pexels-photo-3401403.jpeg")
+        left_img=left_img.resize((720,180),Image.ANTIALIAS)
+        self.photoimg_left=ImageTk.PhotoImage(left_img)
+
+        left_lbl=Label(Left_frame,image=self.photoimg_left)
+        left_lbl.place(x=0,y=0,width=720,height=130)
 
         # current course info
         current_course_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="Current Course Information",font=("times new roman",14,"bold"),fg="blue")
@@ -145,14 +156,16 @@ class Student:
         # radio button
         self.var_radio1=StringVar()
         radio_bt_1=ttk.Radiobutton(class_student_frame,text="Take photo sample",variable=self.var_radio1,value="Yes")
-        radio_bt_1.grid(row=15,column=1)
+        radio_bt_1.grid(row=17,column=1)
+        radio_bt_1.place(x=150,y=190)
 
         radio_bt_2=ttk.Radiobutton(class_student_frame,text="No photo sample",variable=self.var_radio1,value="No")
-        radio_bt_2.grid(row=15,column=2)
+        radio_bt_2.grid(row=17,column=2)
+        radio_bt_2.place(x=300,y=190)
 
         # button frame
         btn_frame=Frame(class_student_frame,bd=2,relief=RIDGE,bg="white")
-        btn_frame.place(x=2,y=180,width=656,height=35)
+        btn_frame.place(x=2,y=222,width=662,height=35)
 
         save_btn=Button(btn_frame,text="Save",command=self.add_data,width=14,font=("times new roman",14,"bold"),bg="green",fg="white")
         save_btn.grid(row=0,column=0)
@@ -163,12 +176,12 @@ class Student:
         delete_btn=Button(btn_frame,text="Delete",command=self.delete_data,width=14,font=("times new roman",14,"bold"),bg="red",fg="black")
         delete_btn.grid(row=0,column=2)
 
-        reset_btn=Button(btn_frame,text="reset",command=self.reset_data,width=14,font=("times new roman",14,"bold"),bg="darkred",fg="white")
+        reset_btn=Button(btn_frame,text="Reset",command=self.reset_data,width=14,font=("times new roman",14,"bold"),bg="darkred",fg="white")
         reset_btn.grid(row=0,column=3)
 
         # button frame 2
         btn_frame1=Frame(class_student_frame,bd=2,relief=RIDGE,bg="white")
-        btn_frame1.place(x=2,y=215,width=656,height=35)
+        btn_frame1.place(x=2,y=257,width=662,height=35)
 
         take_photo_btn=Button(btn_frame1,command=self.generate_dataset,text="Take Photo Sample",width=29,font=("times new roman",14,"bold"),bg="blue",fg="white")
         take_photo_btn.grid(row=0,column=0)
@@ -180,6 +193,13 @@ class Student:
 
         right_frame=LabelFrame(root,bd=2,bg="white", relief=RIDGE,text="Student Detilas",font=("times new roman",14,"bold"),fg="green")
         right_frame.place(x=760,y=100,width=720,height=650)
+
+        right_img=Image.open(r"images\national-cancer-institute-N_aihp118p8-unsplash.jpg")
+        right_img=right_img.resize((720,170),Image.ANTIALIAS)
+        self.photoimg_right=ImageTk.PhotoImage(right_img)
+
+        right_lbl=Label(right_frame,image=self.photoimg_right)
+        right_lbl.place(x=0,y=0,width=720,height=130)
 
 
         # =======================================================search system====================================================
