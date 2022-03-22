@@ -1,7 +1,6 @@
 from tkinter import*
 from tkinter import ttk 
 from tkinter import messagebox
-from turtle import bgcolor
 import mysql.connector
 import cv2 
 from PIL import Image,ImageTk
@@ -47,7 +46,8 @@ class Student:
         left_lbl=Label(Left_frame,image=self.photoimg_left)
         left_lbl.place(x=0,y=0,width=720,height=130)
 
-        # current course info
+        #################################################### current course info ###############################################################
+
         current_course_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="Current Course Information",font=("times new roman",14,"bold"),fg="blue")
         current_course_frame.place(x=7,y=130,width=670,height=150)
 
@@ -87,7 +87,8 @@ class Student:
         semester_combo.current(0)
         semester_combo.grid(row=1,column=3,padx=1,pady=10,sticky=W)
 
-        # class student info
+        ####################################################### class student info #################################################################
+        
         class_student_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="Class Student Information",font=("times new roman",14,"bold"),fg="blue")
         class_student_frame.place(x=7,y=300,width=670,height=316)
 
@@ -262,17 +263,17 @@ class Student:
 
         self.student_table.column("dep",width=150)
         self.student_table.column("course",width=150)
-        self.student_table.column("year",width=150)
+        self.student_table.column("year",width=100)
         self.student_table.column("sem",width=150)
-        self.student_table.column("id",width=150)
+        self.student_table.column("id",width=100)
         self.student_table.column("name",width=150)
-        self.student_table.column("roll",width=150)
+        self.student_table.column("roll",width=100)
         self.student_table.column("gender",width=150)
-        self.student_table.column("dob",width=150)
-        self.student_table.column("email",width=150)
+        self.student_table.column("dob",width=100)
+        self.student_table.column("email",width=200)
         self.student_table.column("phone",width=150)
         self.student_table.column("address",width=150)
-        self.student_table.column("photo",width=150)
+        self.student_table.column("photo",width=100)
 
         self.student_table.pack(fill=BOTH,expand=1)
         self.student_table.bind("<ButtonRelease>",self.get_cursor)
@@ -325,7 +326,7 @@ class Student:
             for i in data:
                 self.student_table.insert("",END,values=i)
             conn.commit()
-            conn.close()        
+        conn.close()        
 
     # ==================================== get cursor ===========================================
 
@@ -346,7 +347,7 @@ class Student:
         self.var_email.set(data[9]),
         self.var_phone.set(data[10]),
         self.var_address.set(data[11]),
-        self.var_radio1.set(data[12]),
+        self.var_radio1.set(data[12])
 
     # update function
 

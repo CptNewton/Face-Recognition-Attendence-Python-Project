@@ -33,11 +33,11 @@ class Developer:
         self.photoimg1=ImageTk.PhotoImage(img_top1)
 
         f_lbl1=Label(main_frame,image=self.photoimg1)
-        f_lbl1.place(x=10,y=50,width=200,height=200)
+        f_lbl1.place(x=20,y=50,width=200,height=200)
 
         # developer 1 info
-        dev_lbl=Label(main_frame,text="Nayan Jyoti Adhikary\n\nStudent of B.Sc IT\n\nScience College,Kokrajhar",font=("times new roman",18,"bold"),bg="black",fg="lightgreen")
-        dev_lbl.place(x=220,y=80)
+        dev_lbl=Label(main_frame,text="[ Nayan Jyoti Adhikary ]\n\nRoll No: 13\nStudent of B.Sc IT\nScience College\nKokrajhar",font=("times new roman",18,"bold"),bg="black",fg="lightgreen")
+        dev_lbl.place(x=230,y=60)
 
         #image 2
         img_top2=Image.open(r"Images\IMG-20200110-WA0088__01.jpg")
@@ -45,11 +45,11 @@ class Developer:
         self.photoimg2=ImageTk.PhotoImage(img_top2)
 
         f_lbl2=Label(main_frame,image=self.photoimg2)
-        f_lbl2.place(x=10,y=330,width=200,height=200)
+        f_lbl2.place(x=20,y=330,width=200,height=200)
 
         # developer 2 info
-        dev_lbl=Label(main_frame,text="Mitali Barman\n\nStudent of B.Sc IT\n\nScience College,Kokrajhar",font=("times new roman",18,"bold"),bg="black",fg="lightpink")
-        dev_lbl.place(x=220,y=350)
+        dev_lbl=Label(main_frame,text="[ Mitali Barman ]\n\nRoll No: 11\nStudent of B.Sc IT\nScience College\nKokrajhar",font=("times new roman",18,"bold"),bg="black",fg="lightpink")
+        dev_lbl.place(x=260,y=340)
 
 
         title_lbl2=Label(f_lbl,bg="black")

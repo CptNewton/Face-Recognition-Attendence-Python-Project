@@ -13,21 +13,21 @@ class Train:
         self.root.geometry("1920x1080+0+0")
         self.root.title("Face Recognition Attendence System")
 
-        title_lbl=Label(self.root,text="TRAIN  DATA  SET",font=("times new roman",32,"bold"),bg="black",fg="lightgreen")
-        title_lbl.place(x=0,y=0,width=1530,height=80)
+        title_lbl4=Label(self.root,text="TRAIN  DATA  SET",font=("times new roman",32,"bold"),bg="black",fg="lightgreen")
+        title_lbl4.place(x=0,y=0,width=1530,height=80)
 
-        back_btn2=Button(title_lbl,text="BACK",command=self.root.destroy,font=("arial",12,"bold"),width=17,bg="white",fg="black",activebackground="white")
+        back_btn2=Button(title_lbl4,text="BACK",command=self.root.destroy,font=("arial",12,"bold"),width=17,bg="white",fg="black",activebackground="white")
         back_btn2.pack(side=RIGHT)
 
         img_top=Image.open(r"Images\markus-spiske-iar-afB0QQw-unsplash.jpg")
         img_top=img_top.resize((1920,1080),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img_top)
 
-        f_lbl=Label(self.root,image=self.photoimg)
-        f_lbl.place(x=0,y=80,width=1920,height=750)
+        f_lbl4=Label(self.root,image=self.photoimg)
+        f_lbl4.place(x=0,y=80,width=1920,height=750)
 
-        b1_1=Button(f_lbl,text="TRAIN DATA",command=self.train_classifier,cursor="hand2",font=("times new roman",20,"bold"),bg="lightgreen",fg="black")
-        b1_1.place(x=520,y=200,width=500,height=80)
+        b1_4=Button(f_lbl4,text="TRAIN DATA",command=self.train_classifier,cursor="hand2",font=("times new roman",20,"bold"),bg="lightgreen",fg="black")
+        b1_4.place(x=520,y=200,width=500,height=80)
 
     def train_classifier(self):
         data_dir=("data")
